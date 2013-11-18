@@ -1,0 +1,24 @@
+<table border="1">
+  <tr>
+	<th>שם פרטי</th>
+	<th>שם משפחה</th>
+	<th>תפקיד</th>
+	<th>טלפון</th>
+	<th>ביפר</th>
+	<th>דואר אלקטרוני</th>
+	<th>שם משתמש</th>
+	<th>פרטים</th>
+  </tr>
+<% for wkr in @workers %>
+  <tr>
+  	<td><%= h wkr.first_name %></td>
+  	<td><%= h wkr.surname %></td>
+  	<td><%= h wkr.mt_company_role.name %></td>
+  	<td><%= h wkr.mobile %></td>
+  	<td><%= h wkr.beeper %></td>
+  	<td><%= h wkr.email %></td>
+	<td><%= h wkr.username %></td>
+	<td><%= h wkr.details %></td>
+  </tr>
+<% end %>
+</table>

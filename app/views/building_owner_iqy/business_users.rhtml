@@ -1,0 +1,28 @@
+<table border="1">
+  <tr>
+	<th>בניין</th>
+	<th>שם עסק</th>
+    <th>שם פרטי</th>
+	<th>שם משפחה</th>
+	<th>שם משתמש</th>
+	<th>טלפון</th>
+	<th>נייד</th>
+	<th>דוא"ל</th>
+	<th>פרטים</th>
+	<th>יצירת קשר</th>
+  </tr>
+<% for user in @users %>
+  <tr>
+	<td><%= h(user.business.building.hr_address) %></td>
+	<td><%= h(user.business.name) %></td>
+    <td><%= h(user.first_name) %></td>
+	<td><%= h(user.surname) %></td>
+	<td><%= h(user.username) %></td>
+	<td><%= h(user.phone) %></td>
+	<td><%= h(user.mobile) %></td>
+	<td><%= h(user.email) %></td>
+	<td><%= h(user.description) %></td>
+	<td><%= h(user.contact_info) %></td>
+  </tr>
+<% end %>
+</table>

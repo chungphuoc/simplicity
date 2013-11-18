@@ -1,0 +1,38 @@
+class GeneralController < ApplicationController
+
+    def buildings
+        @buildings = Building.find(:all, :conditions=>"type='Building'")
+    end
+    
+    def mt_companies
+        @companies = MtCompany.find_all();
+    end
+    
+    def about_us
+    end
+    
+    def contact
+    end
+    
+    def index
+    
+    end
+    
+    def send_contact
+        sender  = params[:email];
+        subject = params[:subject];
+        body    = params[:body]
+        
+        ContactMailer.deliver_contact(sender, subject, body); 
+        add_confirmation "Message sent. Thanks!";
+        redirect_to( :action=>:contact );
+    end
+    
+    
+    def businesses
+        # stage 1: find your building
+        @buildings = Building.find(:all, :conditions=>"type='BusinessBuilding'", :order=>"city, street, number");
+    end
+    
+
+end

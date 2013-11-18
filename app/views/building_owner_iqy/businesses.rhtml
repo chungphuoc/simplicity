@@ -1,0 +1,24 @@
+<table border="1">
+	<tr>
+		<th>שם</th>
+		<th>כינוי מערכת</th>
+		<th>בניין</th>
+		<th>מספר יחידות</th>
+		<th>יחידות</th>
+		<th>דוא"ל</th>
+		<th>טלפון</th>
+		<th>פקס</th>
+	</tr>
+	<% for business in @businesses %>
+	<tr class="<%= cycle('odd_row','even_row') %>">	
+		<td><%= h(business.name) %></td>
+		<td><%= h(business.eng_name) %></td>
+		<td><%= h(business.building.hr_address) %></td>
+		<td><%= business.building_units.size %></td>
+		<td><%= business.building_units.collect{|b| b.name}.join(",") -%></td>
+		<td><%= h( business.email ) %></td>
+		<td><%= h( business.phone ) %></td>
+		<td><%= h( business.fax ) %></td>
+	</tr>
+	<% end -%>
+</table>

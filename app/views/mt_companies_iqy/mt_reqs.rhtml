@@ -1,0 +1,60 @@
+<table border="1">
+	<tr>
+		<th>מספר זיהוי</th>
+		<th>כותרת</th>
+		<th>פרטי הדיווח</th>
+		<th>תאריך דיווח</th>
+		<th>עודכן לאחרונה</th>
+		<th>דחיפות</th>
+		<th>הערות</th>
+		<th>עיר</th>
+		<th>רחוב</th>
+		<th>מספר בית</th>
+		<th>מקום</th>
+		<th>פירוט מקום</th>
+		<th>עסק</th>
+		<th>מדווח</th>
+		<th>סוג שירות</th>
+		<th>נמען</th>
+		<th>מצב</th>
+		<th>זמן עבודה</th>
+		<th>מחיר חלקים</th>
+		<th>מחיר קבוע</th>
+		<th>עלות שעה</th>
+		<th>תאריך פתרון</th>
+		<th>עובד מתקן</th>
+		<th>תקציב</th>
+		<th>מס' זיהוי משימה</th>
+		<th>כותרת משימה</th>
+	</tr>
+<%- for r in @reqs -%>
+	<tr>
+		<td><%= r.id %></td>
+		<td><%= h( r.title ) %></td>
+		<td><%= h( r.body ) %></td>
+		<td><%= loc.pp_date( r.created_on, true ) %></td>
+		<td><%= loc.pp_date( r.updated_on, true ) %></td>
+		<td><%= r.urgency %></td>
+		<td><%= h( r.remarks ) %></td>
+		<td><%= h( r.building.city ) %></td>
+		<td><%= h( r.building.street )  %></td>
+		<td><%= h( r.building.number )  %></td>
+		<td><%= r.place.nil? ? "" : h( r.place.hr_name ) %></td>
+		<td><%= r.place_free_text %></td>
+		<td><%= r.business.nil? ? "" : h( r.business.name ) %></td>
+		<td><%= r.reporter.nil? ? "" : h( r.reporter.hr_name ) %></td>
+		<td><%= loc.mt_req_service_type( r.service_type ) %></td>
+		<td><%= r.assignee.nil? ? "" : h( r.assignee.hr_name ) %></td>
+		<td><%= loc.mt_state( r.state ) %></td>
+		<td><%= r.hours_of_fix %></td>
+		<td><%= r.parts_cost_of_fix %></td>
+		<td><%= r.fixed_price_of_fix %></td>
+		<td><%= r.price_per_hour %></td>
+		<td><%= loc.pp_date( r.solved_on, true ) %></td>
+		<td><%= r.solving_worker.nil? ? "" : r.solving_worker.hr_name %></td>
+		<td><%= h( r.budget_name ) %></td>
+		<td><%= r.mt_company_task.nil? ? "" : r.mt_company_task.id %></td>
+		<td><%= r.mt_company_task.nil? ? "" : r.mt_company_task.title %></td>
+	</tr>
+<%- end -%>
+</table>

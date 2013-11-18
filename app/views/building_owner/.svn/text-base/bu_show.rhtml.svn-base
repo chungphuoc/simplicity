@@ -1,0 +1,47 @@
+<%= begin_page_title "פרטי יחידה" %>
+	<%= button_tag "לרשימת היחידות", {:action=>"bu_list"}, "list", false %>
+	<%= button_tag "ערוך פרטים", {:action=>"bu_edit", :id=>@building_unit}, "edit", false %>
+<%= end_page_title %>
+
+<table class="report">
+	<tr>
+		<td class="key">מספר מערכת</td>
+		<td class="value"><%= @building_unit.new_record? ? "[אין]" : @building_unit.id %></td>
+	</tr>
+	<tr>
+		<td class="key"><label for = "building_unit_name">שם</label></td>
+		<td class="value"><%= h @building_unit.name  %></td>
+	</tr>
+
+	<tr>
+		<td class="key"><label for = "building_unit_unit_type">סוג</label></td>
+		<td class="value"><%= h @building_unit.unit_type.name  %></td>
+	</tr>
+	
+	<tr>
+		<td class="key"><label for = "building_unit_unit_type">עסק נוכחי</label></td>
+		<td class="value"><%- biz = @building_unit.current_business; -%>
+						<%= h((biz.nil? ? loc.term( Localization::UNASSIGNED ) : biz.name))%></td>
+	</tr>
+		
+	<tr>
+		<td class="key"><label for = "building_unit_building">בניין</label></td>
+		<td class="value"><%= h @building_unit.building.hr_address %></td>
+	</tr>
+	
+	<tr>
+		<td class="key"><label for = "building_unit_area">שטח</label></td>
+		<td class="value"><%= h @building_unit.area  %></td>
+	</tr>
+
+	<tr>
+		<td class="key"><label for = "building_unit_floor">קומה</label></td>
+		<td class="value"><%= @building_unit.floor  %></td>
+	</tr>
+	<tr>
+		<td class="key"><label for="building_unit_remarks">הערות</label></td>
+		<td class="value"><%= crlfs_to_brs @building_unit.remarks %></td>
+	</tr>
+	
+</table>
+

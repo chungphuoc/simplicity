@@ -1,0 +1,24 @@
+<%=begin_page_title "פרטי תקלה"%><%=end_page_title%>
+<%= render :partial=>'shared/mt_request/mt_request_data_ro', :object=>@req %>
+<hr />
+<h3>פרטי תיקון</h3>
+<table class="report">
+	<tr>
+		<td class="key">שם מבצע</td>
+		<td class="value">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="key">תאריך</td>
+		<td class="value" style="text-align: center">/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/</td>
+	</tr>
+	<tr>
+		<td class="key">הערות</td>
+		<td class="value" style="width: 100%">
+			<br />
+			<hr /><br />
+			<hr /><br />
+			<hr /><br />
+			<hr /><br />
+		</td>
+	</tr>
+</table>

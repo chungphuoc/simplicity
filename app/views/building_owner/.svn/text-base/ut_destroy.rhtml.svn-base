@@ -1,0 +1,26 @@
+<%= begin_page_title "בעיות במחיקת סוג יחידה" %>
+<%= end_page_title %>
+<% if @reason == "LAST_UNIT" %>
+	<h2>לא ניתן למחוק את סוג היחידה האחרון</h2>
+	<%= link_to "חזרה לרשימת התפקידים", :action => "ut_list" %>
+<% elsif @reason == "BUSINESS_UNITS_EXIST" %>
+	<h2>קיימות יחידות מסוג זה. מה לעשות?</h2>
+	<ul>
+		<li>שנה את סוג היחידות
+			<%= start_form_tag :action=>"ut_destroy"%>
+			<%= hidden_field_tag 'solution', "MOVE", :id=>"sol1" %>
+			<%= collection_select 'new_type','id',@types_left, :id, :name%>
+			<%= submit_tag "בצע" %>
+			<%= end_form_tag%>
+		</li>
+		<li>מחק את היחידות
+			<%= start_form_tag :action=>"ut_destroy"%>
+			<%= hidden_field_tag 'solution', "DELETE", :id=>"sol2"  %>
+			<%= submit_tag "בצע" %>
+			<%= end_form_tag%>
+		</li>
+		<li>ביטול הפעולה וחזרה לרשימה
+			<%= button_to "בצע", :action=>"ut_list" %>
+		</li>
+	</ul>
+<% end %>

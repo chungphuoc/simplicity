@@ -1,0 +1,13 @@
+# == Schema Information
+# Schema version: 18
+#
+# Table name: advertisements
+#
+#  id :integer(11)   not null, primary key
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+another:
+  id: 2

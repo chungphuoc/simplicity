@@ -1,0 +1,52 @@
+8
+
+dir
+120
+file://localhost/svn/vaadnet/trunk/app/views/shared/mt_tsk
+file://localhost/svn/vaadnet
+
+
+
+2007-06-28T23:44:15.909606Z
+36
+michaelbar-sinai
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a7d5a6ee-9b2d-0410-bb23-a881a0c5062c
+
+_task.rhtml
+file
+
+
+
+
+2007-08-16T09:09:48.000000Z
+9fac0ddb0bccfc00a0d406e6c158ce0d
+2007-06-14T23:29:13.294063Z
+35
+michaelbar-sinai
+
+_mt_task_form.rhtml
+file
+
+
+
+
+2007-08-16T09:09:48.000000Z
+391cd3aa259d4fd5a858e3c826ff4ab1
+2007-06-28T23:44:15.909606Z
+36
+michaelbar-sinai
+

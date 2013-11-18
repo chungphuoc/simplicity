@@ -1,0 +1,43 @@
+<%= begin_page_title "הפרטים שלי" %>
+	<%= button_tag "ערוך פרטים", {:action=>"edit_my_details"}, "edit", false %>
+<%= end_page_title %>
+<table class="report">
+<tr>
+	<td class="key"><label for="owner_first_name">שם פרטי</label></td>
+	<td class="value"><%= h @owner.first_name  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_surname">שם משפחה</label></td>
+	<td class="value"><%= h @owner.surname  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_username">שם משתמש</label></td>
+	<td class="value"><span class="ltr"><%= h @owner.username  %></span></td>
+</tr>
+<tr>
+	<td class="key"><label for="owner_mobile">טלפון נייד</label></td>
+	<td class="value"><%= h @owner.mobile  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_phone">טלפון</label></td>
+	<td class="value"><%= h @owner.phone  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_email">דואר אלקטרוני</label></td>
+	<td class="value"><%= h @owner.email  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_fax">פקס</label></td>
+	<td class="value"><%= h @owner.fax  %></td>
+</tr>
+
+<tr>
+	<td class="key"><label for="owner_address">כתובת</label></td>
+	<td class="value"><%= crlfs_to_brs @owner.address  %></td>
+</tr>
+</table>

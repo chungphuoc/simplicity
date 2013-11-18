@@ -1,0 +1,25 @@
+<%=begin_page_title 'קישוריות לאקסל', true%><%=end_page_title%>
+<%= begin_help_section %>
+ניתן להוריד גליונות עבודה של אקסל המתעדכנים באופן אוטומטי מבסיס הנתונים של המערכת.
+<%= end_help_section %>
+
+<div>
+<%= link_to "רשימת עסקים", :type=>BuildingOwnerIqyController::TYPE_BUSINESSES %><br />
+כל העסקים הרשומים במערכת.
+</div>
+<br/>
+<div>
+<%= link_to "רשימת חוזים", :type=>BuildingOwnerIqyController::TYPE_CONTRACTS %><br />
+כל החוזים הרשומים במערכת.
+</div>
+<br/>
+<div>
+<%= link_to "רשימת משתמשים של עסקים", :type=>BuildingOwnerIqyController::TYPE_BUSINESS_USERS %><br />
+כל המשתמשים של כל העסקים במערכת.
+</div>
+<br/>
+<div>
+<%= link_to "רשימת הבניינים", :type=>BuildingOwnerIqyController::TYPE_BUILDINGS %><br />
+כל הבניינים הרשומים במערכת.
+</div>
+

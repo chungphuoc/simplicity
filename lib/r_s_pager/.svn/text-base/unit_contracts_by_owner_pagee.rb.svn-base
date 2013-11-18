@@ -1,0 +1,35 @@
+# Page throught all the unit contracts of a building owner
+class UnitContractsByOwnerPagee < SQLPagee
+    
+    def initialize( building_owner )
+        raise "Owner must be of class #{BuildingOwner.name}" unless building_owner.kind_of?(BuildingOwner)
+        @owner = building_owner
+        self.data_class = UnitContract;
+    end
+    
+    # return the SQL required for select (string/array)
+    def select_sql
+        sql_arr = from_clause
+        sql_arr[0] = "SELECT DISTINCT unit_contracts.*
+                        #{sql_arr[0]}
+                        ORDER BY end_date"
+        return sql_arr
+    end
+
+    # return the SQL required for counting (string/array)
+    def count_sql
+        sql_arr = from_clause
+        sql_arr[0] = "SELECT COUNT( DISTINCT unit_contracts.id )
+                        #{sql_arr[0]}"
+        return sql_arr
+    end
+    
+    def from_clause
+        ["FROM (( unit_contracts INNER JOIN building_units_unit_contracts ON 
+                  building_units_unit_contracts.unit_contract_id = unit_contracts.id
+                ) INNER JOIN building_units ON building_units_unit_contracts.building_unit_id = building_units.id
+               ) INNER JOIN buildings on building_units.building_id = buildings.id
+         WHERE buildings.building_owner_id=?
+        ", @owner.id]
+    end
+end

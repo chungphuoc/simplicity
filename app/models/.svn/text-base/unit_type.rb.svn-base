@@ -1,0 +1,17 @@
+class UnitType < ActiveRecord::Base
+    belongs_to :building_owner;
+    has_many   :building_units;    
+    has_many   :buildings, :foreign_key=>:default_public_unit_type_id;
+    
+    def public?
+        return self.is_public
+    end
+    
+    # if we are not public, make sure we are not the default public unit type of any building
+    def validate
+        if ( (! self.public?) && self.buildings.size>0)
+            self.errors.add_to_base("CANNOT SET PUBLIC TO FALSE - UNIT TYPE IS DEFAULT FOR A BUILDING");
+        end
+    end
+    
+end

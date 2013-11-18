@@ -1,0 +1,20 @@
+# == Schema Information
+# Schema version: 18
+#
+# Table name: announcements
+#
+#  id              :integer(11)   not null, primary key
+#  title           :string(255)   
+#  body            :text          
+#  published_on    :date          
+#  display_on_site :boolean(1)    
+#  link            :string(255)   
+#  file            :string(255)   
+#  file_suffix     :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+another:
+  id: 2

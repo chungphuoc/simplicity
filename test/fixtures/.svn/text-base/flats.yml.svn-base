@@ -1,0 +1,19 @@
+# == Schema Information
+# Schema version: 18
+#
+# Table name: flats
+#
+#  id           :integer(11)   not null, primary key
+#  number       :integer(11)   
+#  floor        :integer(11)   
+#  state        :string(21)    
+#  area         :integer(11)   
+#  base_payment :float(10)     default(0.0)
+#  num_of_rooms :integer(11)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+another:
+  id: 2

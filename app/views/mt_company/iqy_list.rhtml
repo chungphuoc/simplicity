@@ -1,0 +1,29 @@
+<%=begin_page_title 'קישוריות לאקסל', true%><%=end_page_title%>
+<%= begin_help_section %>
+ניתן להוריד גליונות עבודה של אקסל המתעדכנים באופן אוטומטי מבסיס הנתונים של המערכת.
+<%= end_help_section %>
+
+<%- if (@mt_company.eng_name.blank?) -%>
+<div id="errorExplanation" class="error">
+	<%= image_tag "error.png" %>
+	לא ניתן לייצר שאילתות לאקסל, כיוון שאין לחברה שם אנגלי. <br/>
+<%= link_to "עדכן פרטי חברה", :action=>"edit_company_details" %>	
+</div>
+
+
+
+<%- else -%>
+<div>
+<%= link_to "כל בקשות השירות", :type=>MtCompaniesIqyController::TYPE_ALL_REQUESTS %><br />
+הרשימה השלמה של בקשות השירות שבמערכת.
+</div><br/><div>
+<%= link_to "בקשות שירות פתוחות", :type=>MtCompaniesIqyController::TYPE_PENDING_REQUESTS %><br />
+כל בקשות השירות שעדייו דורשות עבודה בשטח (למשל, תיקון שעדייו לא הסתיים או שהטיפול בו עוד לא התחיל).
+</div><br/><div>
+<%= link_to "בקשות שירות ממתינות לחיוב", :type=>MtCompaniesIqyController::TYPE_DEBIT_PENDING_REQUESTS %><br />
+בקשות שירות עבורן העבודה בשטח הסתיימה, ויש לחייב את התקציבים המתאימים עבורן.
+</div><br /><div>
+<%= link_to "רשימת עובדים", :type=>MtCompaniesIqyController::TYPE_WORKER_LIST %><br />
+רשימת עובדי החברה
+</div>
+<%- end -%>

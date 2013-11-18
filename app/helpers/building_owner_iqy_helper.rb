@@ -1,0 +1,2 @@
+module BuildingOwnerIqyHelper
+end

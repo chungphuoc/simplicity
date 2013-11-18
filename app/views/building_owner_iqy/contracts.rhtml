@@ -1,0 +1,23 @@
+<table border="1">
+	<tr>
+		<th>בניין</th>
+		<th>עסק</th>
+		<th>מספר יחידות</th>
+		<th>יחידות</th>
+		<th>סוג</th>
+		<th>ת. התחלה</th>
+		<th>ת. סיום</th>
+	</tr>
+
+	<% for contract in @contracts %>
+	<tr>	
+		<td><%= h(contract.business.building.hr_address) %></td>
+		<td><%= h(contract.business.name) %></td>
+		<td><%= contract.building_units.size %></td>
+		<td><%= contract.building_units.collect{|b| b.name}.join(",") -%></td>
+		<td><%= loc.term( contract.mode ) %></td>
+		<td><%= pp_date(contract.start_date) %></td>
+		<td><%= pp_date(contract.end_date) %></td>
+	</tr>
+	<% end -%>
+</table>

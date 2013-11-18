@@ -1,0 +1,18 @@
+<table border="1">
+	<tr>
+		<th>כתובת</th>
+		<th>יישוב</th>
+		<th>יחידות</th>
+		<th>עסקים</th>
+		<th>חברת אחזקה</th>
+	</tr>
+	<% for building in @buildings %>
+	<tr>
+		<td><%= h("#{building.street} #{building.number}") %></td>
+		<td><%= h( building.city ) %></td>
+		<td><%= building.building_units.size %></td>
+		<td><%= building.businesses.size %></td>
+		<td><%= crlfs_to_brs( building.has_mt_company? ? building.mt_company.name : "[אין]") %></td>
+	</tr>
+	<% end %>
+</table>
