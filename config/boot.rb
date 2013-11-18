@@ -39,6 +39,5 @@ unless defined?(Rails::Initializer)
       require 'initializer'
     end
   end
-
   Rails::Initializer.run(:set_load_path)
 end

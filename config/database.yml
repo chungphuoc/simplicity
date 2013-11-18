@@ -26,8 +26,10 @@ development:
   adapter: mysql
   database: rimon5_yizraelproduction
   username: root
+  pool: 5
   password: cpk2c4
-  host: localhost
+  #host: localhost
+  socket: /var/run/mysqld/mysqld.sock
 
 # production on lunarpages!
 production:
