@@ -26,13 +26,14 @@ development:
   adapter: mysql
   database: rimon5_yizraelproduction
   username: root
-  password: cpk2c4
-  host: localhost
+  password:
+  encoding: utf8
+  socket: /var/run/mysqld/mysqld.sock
 
 # production on lunarpages!
 production:
   adapter: mysql
   database: rimon5_yizraelproduction
-  username: rimon5_yizraelro
-  password: ror
-  host: localhost
+  username: root
+  password: 123456
+  socket: /var/lib/mysql/mysql.sock
