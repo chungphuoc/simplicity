@@ -28,7 +28,8 @@ development:
   username: root
   password:
   encoding: utf8
-  socket: /var/run/mysqld/mysqld.sock
+  host: 127.0.0.1
+  #socket: /var/run/mysqld/mysqld.sock
 
 # production on lunarpages!
 production:
@@ -36,4 +37,5 @@ production:
   database: rimon5_yizraelproduction
   username: root
   password: 123456
-  socket: /var/lib/mysql/mysql.sock
+  host: 127.0.0.1
+  #socket: /var/lib/mysql/mysql.sock
