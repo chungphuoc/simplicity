@@ -2,7 +2,7 @@ require 'find'
 require "#{RAILS_ROOT}/lib/reload_tester"
 class SuperUsersController < ApplicationController
 
-    before_filter :authorize, :except=>[:login, :suggestion_list, :suggestion_destroy_external, :new, :create];
+    before_filter :authorize, :except=>[:login, :suggestion_list, :suggestion_destroy_external];
 
     def index
         list
