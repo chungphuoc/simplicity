@@ -2,7 +2,7 @@ require 'find'
 require "#{RAILS_ROOT}/lib/reload_tester"
 class SuperUsersController < ApplicationController
 
-    before_filter :authorize, :except=>[:login, :suggestion_list, :suggestion_destroy_external];
+    before_filter :authorize, :except=>[:login, :suggestion_list, :suggestion_destroy_external, :new, :create];
 
     def index
         list
@@ -10,7 +10,7 @@ class SuperUsersController < ApplicationController
     end
 
     # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-    verify :method => :post, :only => [ :destroy, :create, :update, 
+    verify :method => :post, :only => [ :destroy, :create, :update,
         :mt_company_destroy, :mt_company_create, :mt_company_update,
         :flat_destroy, :flat_create, :flat_update,
         :pli_destroy, :pli_create, :pli_update,
@@ -23,15 +23,15 @@ class SuperUsersController < ApplicationController
             :redirect_to => { :action => :bo_list }
 
     def login
-        if request.post? 
-            su = SuperUser.authenticate(params[:username], params[:password]) 
-            if su 
-                session[:super_user] = su;               
+        if request.post?
+            su = SuperUser.authenticate(params[:username], params[:password])
+            if su
+                session[:super_user] = su;
                 redirect_to(:action => "index");
-            else 
+            else
                 add_error "ERR_WRONG_USER_PASSWORD";
-            end 
-        end 
+            end
+        end
     end
 
     def logout
@@ -106,7 +106,7 @@ class SuperUsersController < ApplicationController
 
     def flat_create
         @flat = Flat.new(params[:flat])
-        @states = getFlatStates    
+        @states = getFlatStates
         session[:flatArea]  = @flat.area
         session[:flatFloor] = @flat.floor
         session[:flatBasePayment] = @flat.base_payment
@@ -129,7 +129,7 @@ class SuperUsersController < ApplicationController
         if @flat.update_attributes(params[:flat])
             add_confirmation 'Flat was successfully updated.'
             redirect_to :action => 'flat_show', :id => @flat
-        else 
+        else
             @states = getFlatStates
             render :action => 'flat_edit'
         end
@@ -190,7 +190,7 @@ class SuperUsersController < ApplicationController
     end
 
     def suggestion_list
-        @suggestions = Suggestion.find( :all, :order=>"created_on DESC" ); 
+        @suggestions = Suggestion.find( :all, :order=>"created_on DESC" );
     end
 
     def suggestion_edit
@@ -373,7 +373,7 @@ class SuperUsersController < ApplicationController
         @building = Building.find(params[:id])
 
         # if mt_company was changed, remove the manager
-        if ( @building.mt_company_id != params[:building][:mt_company_id].to_i() ) 
+        if ( @building.mt_company_id != params[:building][:mt_company_id].to_i() )
             params[:building][:mt_building_manager_id]  = nil;
         end
 
@@ -537,10 +537,10 @@ class SuperUsersController < ApplicationController
                 end
             rescue Exception=>e
                 add_error e.message
-            end 
+            end
         end
     end
-    
+
     ##################
     # Reload Classes #
     ##################
@@ -559,12 +559,12 @@ class SuperUsersController < ApplicationController
             redirect_to :action=>:login;
         end
     end
-    
+
     def list_ruby_classes
         res = []
         folders = ["lib","app/models"]
         excludes = [".svn"]
-        
+
         folders.each do | fol |
             Find.find("#{RAILS_ROOT}/#{fol}") do |path|
                 if FileTest.directory?(path)
@@ -575,12 +575,12 @@ class SuperUsersController < ApplicationController
                     end
                 else
                     if (path[path.length-3..path.length] == ".rb") && ( path[0..0]!="." )
-                        res << path 
+                        res << path
                     end
                 end
             end
         end
         return res
     end
-    
+
 end
