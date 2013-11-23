@@ -34,8 +34,8 @@
 		</tr><tr>
 			<td align="center">
 				<% if @human != nil -%>
-				<div class="login_name">שלום 
-				<span class="hr_name"> <%=@human.hr_name -%></span> (	אם אינך 
+				<div class="login_name">שלום
+				<span class="hr_name"> <%=@human.hr_name -%></span> (	אם אינך
 					<%= @human.hr_name %>, <%= link_to session[:msg_nituk], :action=>"logout", :controller=>"vaad_admin" -%>
 				)</div>
 				<% end %>
@@ -53,7 +53,7 @@
 							<%- end -%>
 						</td>
 						<td class="top_buttons_area">
-							<%= button_tag "אתר הדיירים", :controller=>:tenant %>
+							<%= button_tag "tenant", :controller=>:tenant %>
 							<%= button_tag "יציאה", :action=>:logout %>
 						</td></tr>
 				</table>
